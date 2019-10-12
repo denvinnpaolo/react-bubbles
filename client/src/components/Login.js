@@ -26,7 +26,6 @@ const Login = props => {
     axiosWithAuth()
       .post('/login', login)
       .then(res => {
-        console.log(res)
         localStorage.setItem("token", res.data.payload);
         props.history.push('/bubblepage')
       })
@@ -50,9 +49,7 @@ const Login = props => {
           onChange={changeHandler}
           value={login.password}
         />
-        <button>
-          submit
-        </button>
+        <button>submit</button>
       </form>
     </>
   );
