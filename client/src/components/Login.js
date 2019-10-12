@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import { axiosWithAuth } from "../utils/axiosWithAuth";
-const Login = () => {
+const Login = props => {
 
   const [ login, setLogin ] = useState({
     username:'',
@@ -28,6 +28,7 @@ const Login = () => {
       .then(res => {
         console.log(res)
         localStorage.setItem("token", res.data.payload);
+        props.history.push('/bubblepage')
       })
       .catch(err => console.log(err))
 
